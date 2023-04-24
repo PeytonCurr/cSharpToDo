@@ -38,4 +38,18 @@ public class ToDosController : ControllerBase
       return BadRequest(e.Message);
     }
   }
+
+  [HttpPost]
+  public ActionResult<ToDo> Create([FromBody] ToDo toDoData)
+  {
+    try
+    {
+      ToDo toDo = _toDosService.Create(toDoData);
+      return Ok(toDo);
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
 }

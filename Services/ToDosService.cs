@@ -21,4 +21,9 @@ public class ToDosService
     if (toDo == null) throw new Exception($"no ToDo at Id {ToDoId}");
     return toDo;
   }
+
+  internal ToDo Create(int toDoData)
+  {
+    ToDo toDo = _repo.Create(toDoData)
+  }
 }
