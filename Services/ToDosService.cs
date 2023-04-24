@@ -14,4 +14,11 @@ public class ToDosService
     List<ToDo> toDos = _repo.Get();
     return toDos;
   }
+
+  internal ToDo GetOne(int ToDoId)
+  {
+    ToDo toDo = _repo.GetOne(ToDoId);
+    if (toDo == null) throw new Exception($"no ToDo at Id {ToDoId}");
+    return toDo;
+  }
 }

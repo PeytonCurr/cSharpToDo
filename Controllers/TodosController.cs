@@ -24,4 +24,18 @@ public class ToDosController : ControllerBase
       return BadRequest(e.Message);
     }
   }
+
+  [HttpGet("{ToDoId}")]
+  public ActionResult<ToDo> GetOne(int ToDoId)
+  {
+    try
+    {
+      ToDo toDo = _toDosService.GetOne(ToDoId);
+      return Ok(toDo);
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
 }

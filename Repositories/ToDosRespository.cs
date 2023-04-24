@@ -13,4 +13,10 @@ public class ToDosRepository
   {
     return _db.ToDos;
   }
+
+  internal ToDo GetOne(int ToDoId)
+  {
+    ToDo toDo = _db.ToDos.Find(t => t.Id == ToDoId);
+    return toDo;
+  }
 }
